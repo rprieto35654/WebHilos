@@ -1,14 +1,15 @@
-.sidenav {
+.menu-lateral {
+    background-color: #D7DBDD;
 	height: 100%;
-	width: 25%;
 	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #111;
-	overflow-x: hidden;
-	padding-top: 60px;
-	transition: 0.5s;
+    overflow-x: hidden;
+    font-weight: 800;
+    font-family: Verdana;
+    float: left;
+    top: 0;
+}
+.opcion-inicio{
+    color: blue;
 }
 
 .sidenav a {
@@ -43,7 +44,6 @@
         width: 16.66%; 
         /*-- our gutter -- */
         padding: 12px; 
-        background-color: #FFDCDC;
     }
 
     .col-1{ width: 16.66%; }
