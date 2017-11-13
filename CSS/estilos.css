@@ -109,3 +109,9 @@ h5{
 	padding-left: 50px;
 	padding-top: 10px;
 }
+
+
+img.center {
+	display: block;
+	margin: 0 auto;
+  }
