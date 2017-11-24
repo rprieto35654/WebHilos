@@ -16,12 +16,23 @@ if (!$enlace) {
     echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-
-echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos proyecto_ean es genial." . PHP_EOL;
 echo "Información del host: " . mysqli_get_host_info($enlace) . PHP_EOL;
 
-mysqli_close($enlace);
+$result = mysqli_query($enlace,"SELECT * from usuarios where Username='" . $usuario . "'");
  
-
+if($row = mysqli_fetch_array($result)){
+if($row['Password'] == $pass){
+session_start();
+$_SESSION['usuario'] = $usuario;
+header("Location: contenido.php");
+}else{
+header("Location: loguin.html");
+exit();
+}
+}else{
+header("Location:  loguin.html");
+exit();
+}
  
+mysqli_close($enlace); 
 ?>
