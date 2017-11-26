@@ -7,19 +7,19 @@ $username_err = $password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
+        $username_err = 'Por favor Ingrese su usuario.';
     } else{
         $username = trim($_POST["username"]);
     }
 
     if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
+        $password_err = 'Por favor ingrese su contraseña.';
     } else{
         $password = trim($_POST['password']);
     }
 
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT username, password FROM users WHERE username = ?";
+        $sql = "SELECT V_Username, V_Password FROM usuario WHERE V_Username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -37,14 +37,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['username'] = $username;
                             header("location: welcome.php");
                         } else{
-                            $password_err = 'The password you entered was not valid.';
+                            $password_err = 'La contraseña no es valida.';
                         }
                     }
                 } else{
-                    $username_err = 'No account found with that username.';
+                    $username_err = 'No se encontro una cuenta de usuario con ese nombre.';
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Algo ha salido mal por favor intente mas tarde.";
             }
         }
 
