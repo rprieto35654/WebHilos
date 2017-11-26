@@ -11,6 +11,22 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script> src="../scripts.js"</script>
+<script>
+function initMap() {
+  var hilanderia = {lat: 4.634784, lng: -74.121233};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    center: hilanderia
+  });
+  var marker = new google.maps.Marker({
+    position: hilanderia,
+    map: map
+  });
+}
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr1KHKttrxC6v-nOxCyKewa2IrilajTN4&callback=initMap">
+    </script>
 </head> <!-- Fin cabecera -->
 
 <body> <!-- Inicio cuerpo -->
@@ -40,6 +56,9 @@
   <div  class="col-md-12">
     <div  class="col-md-12 flotante">
         <h1>Nuestra Presencia en el Mercado</h1>
+    </div>
+    <div class="col-md-12" id="map">
+
     </div>
     <div  class="col-md-6 flotante">
         <p>
